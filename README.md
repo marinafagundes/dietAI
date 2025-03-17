@@ -16,7 +16,7 @@ Antes de rodar o projeto, certifique-se de ter instalado:
 
 ```sh
 git clone <URL_DO_REPOSITORIO>
-cd dietaai
+cd dietAI
 ```
 
 ### 2️⃣ Instalar dependências do mobile
