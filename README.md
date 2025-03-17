@@ -1,6 +1,6 @@
-# DietaAI
+# DietAI
 
-Este projeto é um aplicativo React Native que gera dietas personalizadas com base nos dados do usuário. Ele se comunica com um backend para processar as informações e retornar um plano alimentar.
+Este projeto é um aplicativo React Native que gera dietas personalizadas com base nos dados do usuário. Ele se comunica com um backend e com a API do Gemini para processar as informações e retornar um plano alimentar.
 
 ## 📋 Requisitos
 
