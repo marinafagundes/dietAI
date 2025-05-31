@@ -30,7 +30,7 @@ export const api = axios.create({
      * URL base para todas as requisições da API.
      * Deve ser substituída pelo IP correto do servidor backend quando necessário.
      * 
-     * Exemplo de requisição: `http://192.168.0.247:3333/endpoint`
+     * Exemplo de requisição: `http://192.168.1.1:3333/endpoint`
      */
-    baseURL: "http://192.168.0.247:3333/"
+    baseURL: process.env.EXPO_PUBLIC_API_URL
 })
