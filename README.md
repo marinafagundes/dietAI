@@ -49,19 +49,17 @@ API_KEY=your_api_key_here
 
 - A API\_KEY pode ser obtida no [Google AI Studio](https://aistudio.google.com/). Após criar uma conta, vá até a seção de chaves de API e gere uma nova chave.
 
-### 5️⃣ Ajustar a baseURL da API no mobile
+#### Mobile
 
-O endereço da API está definido no arquivo `services/api.ts`, dentro da pasta `mobile`. Verifique e, se necessário, altere a `baseURL` para apontar para o backend corretamente.
+Crie um arquivo `.env` na raiz da pasta `mobile` com o seguinte conteúdo:
 
-```ts
-import axios from "axios";
+```env
+EXPO_PUBLIC_API_URL=http://192.168.X.X:3333
 
-export const api = axios.create({
-    baseURL: "http://SEU_IP_LOCAL:3333"
-});
 ```
 
-💡 **Atenção:** Substitua `SEU_IP_LOCAL` pelo IP da sua máquina na rede local.
+💡 💡 **Atenção:** Substitua o valor de `EXPO_PUBLIC_API_URL` pelo IP da sua máquina na rede local, como `http://192.168.1.100:3333`.
+
 
 ## 🔥 Rodando o projeto
 
@@ -101,12 +99,30 @@ Isso abrirá o Expo DevTools no navegador. No seu celular, escaneie o QR Code co
 npx expo start --clear
 ```
 
+## 🔐 Segurança e variáveis
+
+Certifique-se de que os arquivos .env não sejam versionados. Eles já estão ignorados no .gitignore.
+
+### Exemplos de arquivos .env
+```sh
+backend/.env.example
+
+API_KEY=your_api_key_here
+```
+```sh
+mobile/.env.example
+
+EXPO_PUBLIC_API_URL=http://192.168.X.X:3333
+```
+
 ## 📌 Notas finais
 
-- Este projeto utiliza `react-query` para chamadas assíncronas à API.
-- O backend roda na porta `3333`, conforme definido no código-fonte (`host: "0.0.0.0", port: 3333`).
-- Se precisar rodar em um emulador, use `adb reverse tcp:3333 tcp:3333` (para Android) ou mapeie o IP corretamente no iOS.
-- Para conseguir uma API\_KEY do Gemini, acesse [Google AI Studio](https://aistudio.google.com/) e gere sua chave.
+- O backend roda na porta 3333 com host: "0.0.0.0", acessível na rede local.
+- O frontend utiliza axios e react-query para comunicação assíncrona com a API.
+- Em emuladores Android: use adb reverse tcp:3333 tcp:3333 para redirecionar a porta.
+- A API_KEY utilizada no backend deve ser gerada em Google AI Studio.
 
-Caso tenha dúvidas, abra uma issue ou entre em contato com o time! 🚀
+Para dúvidas, sugestões ou bugs, abra uma issue ou entre em contato com o time. 🚀
+
+
 
