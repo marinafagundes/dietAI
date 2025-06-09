@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+, "e2e/index.e2e.ts", "e2e/01-index.test.js"  ]
 }

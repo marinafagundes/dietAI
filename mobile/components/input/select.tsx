@@ -47,6 +47,10 @@ interface SelectProps{
      * Lista de opções disponíveis para seleção.
      */
     options: OptionsProps[] 
+    /**
+     * ID para testes.
+     */
+    testID?: string;
 }
 
 /**
@@ -55,7 +59,7 @@ interface SelectProps{
  * @param {SelectProps} props - Propriedades do componente.
  * @returns {JSX.Element} - Elemento JSX representando o seletor customizado.
  */
-export function Select({ name, control, placeholder, error, options }: SelectProps) {
+export function Select({ name, control, placeholder, error, options, testID }: SelectProps) {
     /**
      * Estado responsável por controlar a visibilidade do modal de seleção.
      */
@@ -71,7 +75,7 @@ export function Select({ name, control, placeholder, error, options }: SelectPro
                 render={({ field: { onChange, onBlur, value }}) => (
                     <>
                         {/* Botão de abertura do seletor */}
-                        <TouchableOpacity style={styles.select} onPress={() => setVisible(true)}>
+                        <TouchableOpacity testID={testID} style={styles.select} onPress={() => setVisible(true)}>
                             <Text>
                                 {value ? options.find(option => option.value === value)?.label : placeholder }
                             </Text>

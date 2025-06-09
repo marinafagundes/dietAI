@@ -34,6 +34,10 @@ interface InputProps{
      * Tipo de teclado exibido ao usuário (numérico, padrão, e-mail, etc.).
      */
     keyboardType: KeyboardTypeOptions;
+    /**
+     * ID para testes.
+     */
+    testID?: string;
   }
 
 /**
@@ -42,7 +46,7 @@ interface InputProps{
  * @param {InputProps} props - Propriedades do componente.
  * @returns {JSX.Element} - Elemento JSX representando o campo de entrada.
  */
-export function Input({name, control, placeholder, rules, error, keyboardType}: InputProps) {
+export function Input({name, control, placeholder, rules, error, keyboardType, testID}: InputProps) {
  return (
     <View style={styles.container}>
         <Controller
@@ -57,6 +61,7 @@ export function Input({name, control, placeholder, rules, error, keyboardType}: 
                     value={value}
                     onChangeText={onChange}
                     keyboardType='default'
+                    testID={testID}
                 />
             )}
         />

@@ -106,6 +106,7 @@ export default function Create() {
                     placeholder="Selecione seu sexo..."
                     error={errors.gender?.message}
                     options={genderOptions}
+                    testID="genderSelector"
                 />
     
                 <Text style={styles.label}>Selecione seu nível de atividade física:</Text>
@@ -115,6 +116,7 @@ export default function Create() {
                     placeholder="Selecione o nível de atividade física"
                     error={errors.level?.message}
                     options={levelOptions}
+                    testID="activityLevelSelector"
                 />      
     
                 <Text style={styles.label}>Selecione seu objetivo:</Text>
@@ -124,6 +126,7 @@ export default function Create() {
                     placeholder="Selecione o nível de atividade física"
                     error={errors.objective?.message}
                     options={objectiveOptions}
+                    testID="goalSelector"
                 />  
     
                 {/* Botão para avançar para a próxima etapa */}
