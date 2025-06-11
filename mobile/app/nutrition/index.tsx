@@ -70,8 +70,14 @@ export default function Nutrition() {
             if(data && Object.keys(data).length === 0) return;
 
             // Formata a mensagem para compartilhamento
-            const supplements = `${data?.suplementos.map( item => ` ${item}`)}`
-            const foods = `${data?.refeicoes.map( item => `\n- Nome: ${item.nome}\n- Horário: ${item.horario}\n- Alimentos: ${item.alimentos.map( alimento => ` ${alimento}` )}`)}`
+            const supplements = data?.suplementos.join(', ') ?? '';
+
+            const foods = data?.refeicoes
+            .map(item => {
+                const alimentos = item.alimentos.join(', ');
+                return `\n- Nome: ${item.nome}\n- Horário: ${item.horario}\n- Alimentos: ${alimentos}`;
+            })
+            .join('') ?? '';
             const message = `Dieta: ${data?.nome} - Objetivo: ${data?.objetivo}\n\n${foods}\n\n- Dica de Suplemento: ${supplements}`
 
             await Share.share({
