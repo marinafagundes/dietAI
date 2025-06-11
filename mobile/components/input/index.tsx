@@ -13,31 +13,31 @@ interface InputProps{
     /**
      * Nome do campo no formulário.
      */
-    name: string;
+    readonly name: string;
     /**
      * Controle do React Hook Form para manipulação do estado do campo.
      */
-    control: any;
+    readonly control: any;
     /**
      * Texto exibido dentro do campo de entrada quando ele está vazio.
      */
-    placeholder?: string;
+    readonly placeholder?: string;
     /**
      * Regras de validação do campo, conforme definidas no React Hook Form.
      */
-    rules?: object;
+    readonly rules?: object;
     /**
      * Mensagem de erro exibida caso a validação do campo falhe.
      */
-    error?: string;
+    readonly error?: string;
     /**
      * Tipo de teclado exibido ao usuário (numérico, padrão, e-mail, etc.).
      */
-    keyboardType: KeyboardTypeOptions;
+    readonly keyboardType: KeyboardTypeOptions;
     /**
      * ID para testes.
      */
-    testID?: string;
+    readonly testID?: string;
   }
 
 /**

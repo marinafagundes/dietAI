@@ -14,15 +14,15 @@ interface HeaderProps{
     /**
      * Indica o passo atual do processo.
      */
-    step: string;
+    readonly step: string;
     /**
      * Título exibido no cabeçalho.
      */
-    title: string;
+    readonly title: string;
     /**
      * ID para testes.
      */
-    testID?: string;
+    readonly testID?: string;
 }
 
 /**

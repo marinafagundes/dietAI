@@ -16,11 +16,11 @@ interface OptionsProps{
     /**
      * Texto exibido para o usuário.
      */
-    label: string; 
+    readonly label: string; 
     /**
      * Valor associado à opção (pode ser string ou número).
      */
-    value: string | number;
+    readonly value: string | number;
 }
   
 /**
@@ -30,27 +30,27 @@ interface SelectProps{
     /**
      * Nome do campo no formulário.
      */
-    name: string; 
+    readonly name: string; 
     /**
      * Controle do React Hook Form para manipulação do estado do campo.
      */
-    control: any; 
+    readonly control: any; 
     /**
      * Texto exibido quando nenhum valor está selecionado.
      */
-    placeholder?: string; 
+    readonly placeholder?: string; 
     /**
      * Mensagem de erro a ser exibida caso a validação do campo falhe.
      */
-    error?: string; 
+    readonly error?: string; 
     /**
      * Lista de opções disponíveis para seleção.
      */
-    options: OptionsProps[] 
+    readonly options: OptionsProps[] 
     /**
      * ID para testes.
      */
-    testID?: string;
+    readonly testID?: string;
 }
 
 /**
