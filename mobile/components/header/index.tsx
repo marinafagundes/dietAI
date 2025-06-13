@@ -14,11 +14,15 @@ interface HeaderProps{
     /**
      * Indica o passo atual do processo.
      */
-    step: string;
+    readonly step: string;
     /**
      * Título exibido no cabeçalho.
      */
-    title: string;
+    readonly title: string;
+    /**
+     * ID para testes.
+     */
+    readonly testID?: string;
 }
 
 /**
@@ -28,13 +32,13 @@ interface HeaderProps{
  * @param {HeaderProps} props - Propriedades do componente.
  * @returns {JSX.Element} - Componente de cabeçalho renderizado.
  */
-export function Header({step, title}: HeaderProps){
+export function Header({step, title, testID}: HeaderProps){
   return(
     <SafeAreaView style={styles.container}>
         <View style={styles.content}>
             {/* Linha superior com botão de voltar e indicador de progresso */}
             <View style={styles.row}>
-                <Pressable onPress={ () => router.back()}>
+                <Pressable testID={testID} onPress={ () => router.back()}>
                     <Feather name="arrow-left" size={24} color='#000' />
                 </Pressable>
 

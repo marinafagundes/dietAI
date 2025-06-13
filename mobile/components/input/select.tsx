@@ -16,11 +16,11 @@ interface OptionsProps{
     /**
      * Texto exibido para o usuário.
      */
-    label: string; 
+    readonly label: string; 
     /**
      * Valor associado à opção (pode ser string ou número).
      */
-    value: string | number;
+    readonly value: string | number;
 }
   
 /**
@@ -30,23 +30,27 @@ interface SelectProps{
     /**
      * Nome do campo no formulário.
      */
-    name: string; 
+    readonly name: string; 
     /**
      * Controle do React Hook Form para manipulação do estado do campo.
      */
-    control: any; 
+    readonly control: any; 
     /**
      * Texto exibido quando nenhum valor está selecionado.
      */
-    placeholder?: string; 
+    readonly placeholder?: string; 
     /**
      * Mensagem de erro a ser exibida caso a validação do campo falhe.
      */
-    error?: string; 
+    readonly error?: string; 
     /**
      * Lista de opções disponíveis para seleção.
      */
-    options: OptionsProps[] 
+    readonly options: OptionsProps[] 
+    /**
+     * ID para testes.
+     */
+    readonly testID?: string;
 }
 
 /**
@@ -55,7 +59,7 @@ interface SelectProps{
  * @param {SelectProps} props - Propriedades do componente.
  * @returns {JSX.Element} - Elemento JSX representando o seletor customizado.
  */
-export function Select({ name, control, placeholder, error, options }: SelectProps) {
+export function Select({ name, control, placeholder, error, options, testID }: SelectProps) {
     /**
      * Estado responsável por controlar a visibilidade do modal de seleção.
      */
@@ -71,7 +75,7 @@ export function Select({ name, control, placeholder, error, options }: SelectPro
                 render={({ field: { onChange, onBlur, value }}) => (
                     <>
                         {/* Botão de abertura do seletor */}
-                        <TouchableOpacity style={styles.select} onPress={() => setVisible(true)}>
+                        <TouchableOpacity testID={testID} style={styles.select} onPress={() => setVisible(true)}>
                             <Text>
                                 {value ? options.find(option => option.value === value)?.label : placeholder }
                             </Text>

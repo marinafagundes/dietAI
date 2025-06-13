@@ -40,7 +40,7 @@ type FormData = z.infer<typeof schema>
  */
 export default function Create() {
     // Configuração do formulário com react-hook-form e validação Zod
-    const { control, handleSubmit, formState: { errors, isValid } } = useForm<FormData>({
+    const { control, handleSubmit, formState: { errors } } = useForm<FormData>({
         resolver: zodResolver(schema)
     })
 
@@ -96,6 +96,7 @@ export default function Create() {
             <Header
                 step='Passo 2'
                 title='Finalizando dieta'
+                testID="backButton"
             />
   
             <ScrollView style={styles.content}>
@@ -106,6 +107,7 @@ export default function Create() {
                     placeholder="Selecione seu sexo..."
                     error={errors.gender?.message}
                     options={genderOptions}
+                    testID="genderSelector"
                 />
     
                 <Text style={styles.label}>Selecione seu nível de atividade física:</Text>
@@ -115,6 +117,7 @@ export default function Create() {
                     placeholder="Selecione o nível de atividade física"
                     error={errors.level?.message}
                     options={levelOptions}
+                    testID="activityLevelSelector"
                 />      
     
                 <Text style={styles.label}>Selecione seu objetivo:</Text>
@@ -124,6 +127,7 @@ export default function Create() {
                     placeholder="Selecione o nível de atividade física"
                     error={errors.objective?.message}
                     options={objectiveOptions}
+                    testID="goalSelector"
                 />  
     
                 {/* Botão para avançar para a próxima etapa */}

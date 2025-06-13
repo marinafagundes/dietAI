@@ -40,7 +40,7 @@ type FormData = z.infer<typeof schema>
  */
 export default function Step(){
     // Configuração do formulário com react-hook-form e validação Zod
-    const { control, handleSubmit, formState: { errors, isValid } } = useForm<FormData>({
+    const { control, handleSubmit, formState: { errors } } = useForm<FormData>({
         resolver: zodResolver(schema)
     })
 
@@ -68,11 +68,13 @@ export default function Step(){
             <Header
                 step='Passo 1'
                 title='Vamos começar!'
+                testID="backButton"
             />
 
             <ScrollView style={styles.content}>
                 <Text style={styles.label}>Nome:</Text>
                 <Input
+                    testID="name"
                     name="name"
                     control={control}
                     placeholder='Digite seu nome...'
@@ -82,6 +84,7 @@ export default function Step(){
 
                 <Text style={styles.label}>Seu peso atual:</Text>
                 <Input
+                    testID="weight"
                     name="weight"
                     control={control}
                     placeholder='Ex.: 75.'
@@ -91,6 +94,7 @@ export default function Step(){
 
                 <Text style={styles.label}>Sua altura atual:</Text>
                 <Input
+                    testID="height"
                     name="height"
                     control={control}
                     placeholder='Ex.: 1.80.'
@@ -100,6 +104,7 @@ export default function Step(){
 
                 <Text style={styles.label}>Sua idade atual:</Text>
                 <Input
+                    testID="age"
                     name="age"
                     control={control}
                     placeholder='Ex.: 25.'
