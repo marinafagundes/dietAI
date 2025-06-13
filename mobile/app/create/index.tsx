@@ -96,6 +96,7 @@ export default function Create() {
             <Header
                 step='Passo 2'
                 title='Finalizando dieta'
+                testID="backButton"
             />
   
             <ScrollView style={styles.content}>

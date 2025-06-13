@@ -53,11 +53,11 @@ class CreateNutritionService {
                  * Remove marcações de código da resposta para garantir que seja um JSON válido.
                  * Alguns modelos de IA podem retornar JSONs dentro de blocos de código (ex: ```json ... ```)
                  */
-                let jsonString = jsonText.replace(/```\w*\n/g, '').replace(/\n```/g, '').trim();
+                const jsonString = jsonText.replace(/```\w*\n/g, '').replace(/\n```/g, '').trim();
                 /**
                  * Converte a string formatada para um objeto JSON.
                  */
-                let jsonObject = JSON.parse(jsonString)
+                const jsonObject = JSON.parse(jsonString)
 
                 return { data: jsonObject }
             }
